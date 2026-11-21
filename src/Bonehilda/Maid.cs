@@ -19,6 +19,8 @@ public sealed class Maid : MonoBehaviour
     internal ZNetView View { get; private set; } = null!;
     internal bool HasCargo => cargo != null && cargo.GetAllItems().Count > 0;
     internal bool OffDuty => View && View.IsValid() && (View.GetZDO().GetBool(ReturningKey) || View.GetZDO().GetBool("BH_stowing"));
+    internal static bool InCoffinPassage(ZDO data) =>
+        data.GetBool("BH_entering") || data.GetBool(ExitingKey) || data.GetBool("BH_stowing");
     private Humanoid character = null!;
     private MonsterAI ai = null!;
     private WorkAnimations animations = null!;
@@ -210,7 +212,7 @@ public sealed class Maid : MonoBehaviour
             return;
         }
         var delta = Time.deltaTime;
-        SetCoffinPassage(View.GetZDO().GetBool("BH_entering") || View.GetZDO().GetBool(ExitingKey) || View.GetZDO().GetBool("BH_stowing") ? home : null);
+        SetCoffinPassage(InCoffinPassage(View.GetZDO()) ? home : null);
         if (character.GetLevel() != home.Level) character.SetLevel(home.Level);
         if (View.GetZDO().GetBool("BH_stowing"))
         {

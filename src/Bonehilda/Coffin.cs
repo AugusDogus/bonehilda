@@ -83,7 +83,8 @@ public sealed class Coffin : MonoBehaviour
         if ((now.Ticks - entrance) / (double)TimeSpan.TicksPerSecond < 0.9) return;
         var prefab = ZNetScene.instance.GetPrefab(Plugin.MaidPrefab);
         if (!prefab) return;
-        var spawn = InteriorPosition;
+        // Leave the uncompressed first pose clear of the rear panel.
+        var spawn = InteriorPosition + transform.forward * (.04f * CoffinVisuals.Size(Stars));
         var maid = Instantiate(prefab, spawn, transform.rotation).GetComponent<Maid>();
         maid.Bind(this, true);
         if (data.GetBool("BH_restoreStored"))
