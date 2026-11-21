@@ -25,6 +25,7 @@ internal sealed class WorkAnimations : MonoBehaviour
         if (!animator.avatar.isHuman || !source.runtimeAnimatorController)
             throw new InvalidOperationException("Player animations require a humanoid skeleton avatar.");
         animator.runtimeAnimatorController = source.runtimeAnimatorController;
+        CoffinPerspective.Attach(animator);
         var sync = maid.GetComponent<ZSyncAnimation>();
         var playerSync = player.GetComponent<ZSyncAnimation>();
         sync.m_syncBools = new List<string>(playerSync.m_syncBools);
