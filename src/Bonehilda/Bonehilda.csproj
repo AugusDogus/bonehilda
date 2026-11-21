@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>Bonehilda</AssemblyName>
+    <RootNamespace>Bonehilda</RootNamespace>
+    <Version>0.4.1</Version>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Core" Version="5.4.21" PrivateAssets="all" />
+    <PackageReference Include="HarmonyX" Version="2.9.0" PrivateAssets="all" />
+    <PackageReference Include="JotunnLib" Version="2.30.2" ExcludeAssets="build;buildTransitive" PrivateAssets="all" />
+    <PackageReference Include="UnityEngine.Modules" Version="2021.3.33" PrivateAssets="all" />
+    <PackageReference Include="ValheimGameLibs" Version="0.221.4" GeneratePathProperty="true" PrivateAssets="all" />
+    <Reference Include="assembly_valheim"><HintPath>$(PkgValheimGameLibs)/lib/assembly_valheim.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="assembly_utils"><HintPath>$(PkgValheimGameLibs)/lib/assembly_utils.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+</Project>

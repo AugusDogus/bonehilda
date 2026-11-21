@@ -1,0 +1,6 @@
+Generated using the built-in imagegen tool, 2026-11-21.
+Full-resolution original: bonehilda-artwork.png
+Mod manager icon: icon.png (256 x 256)
+
+Prompt:
+Use case: stylized-concept. Asset type: square Valheim mod-manager icon, readable at 256x256. Create a polished original low-poly fantasy illustration of Bonehilda, a friendly skeletal maid: ivory skull with warm glowing eyes, petite white frilled maid cap, modest matte black dress with white apron. Bust portrait, holding a small repair hammer, with the silhouette of a dark wooden coffin behind her. A small luminous green faceted diamond floats above her head as a playful life-simulation reference. Strong clear silhouette, charcoal and forest-green background, warm amber rim lighting, ivory and black cloth, handsome restrained Nordic woodcarving border. Charming spooky housekeeper, not scary, no gore. No text, no game logos, no watermark. Opaque square background. The icon should depict her as a capable domestic helper, not sexualized. Clean shapes and excellent contrast at small sizes.
