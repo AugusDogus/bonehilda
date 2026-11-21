@@ -4,7 +4,7 @@
 
 A little **Makin' Magic** for your mead hall. A Valheim BepInEx/Jötunn mod that adds a buildable coffin and a skeletal maid who maintains your base. Leave the chores to Bonehilda; her free will is switched on, and she has no bladder bar to worry about.
 
-**Version 0.4.1.** Built against Valheim **0.221.4** reference assemblies and checked against the installed **Valheim 1.0.21 / Jötunn 2.30.2** libraries. All three coffins summoned their matching dressed maids in a local test world. Multiplayer and dismissal pathfinding still need gameplay testing.
+**Version 0.4.1.** Built against Valheim **0.221.4** reference assemblies and checked against the installed **Valheim 1.0.21 / Jötunn 2.30.2** libraries. On flat ground in a local test world, all three maids exited their coffins, returned, and cleared the closing door. Multiplayer and obstructed return paths still need gameplay testing.
 
 ## Playing
 
@@ -16,7 +16,7 @@ Build a coffin with the hammer under **Furniture** or **Storage**, near a workbe
 | Bonehilda's coffin (1 star) | 1 star; black dress | 4 slots | 20 Wood, 10 Bone Fragments, 1 Bronze | `BH_Coffin_1Star` |
 | Bonehilda's coffin (2 stars) | 2 stars; blush floral dress | 8 slots | 20 Wood, 10 Bone Fragments, 2 Bronze | `BH_Coffin` |
 
-The six-sided coffin has a flat crown, broad shoulders, a tapered foot, and a withered-bone frame around a quilted lining and a hinged timber door. The doors carry linked lozenges, a three-lobed knot, and a four-loop weave in ascending tier order. Each frame uses crooked, weathered bone rails. The recessed candles progress from a beeswax stub in iron to an ivory pillar in bronze and a twisted plum taper in a petalled cup. Their light moves with the door. The hammer icons are renders of the three finished coffins. Leave clear space in front for Bonehilda to enter and return.
+Each coffin is sized for its star-level maid, with room for her cap and skirt behind the closed door. The six-sided coffin has a flat crown, broad shoulders, a tapered foot, and a withered-bone frame around a quilted lining and a hinged timber door. The doors carry linked lozenges, a three-lobed knot, and a four-loop weave in ascending tier order. Each frame uses crooked, weathered bone rails. The recessed candles progress from a beeswax stub in iron to an ivory pillar in bronze and a twisted plum taper in a petalled cup. Their light moves with the door. The hammer icons are renders of the three finished coffins. Leave clear space in front for Bonehilda to enter and return.
 
 Bonehilda wears a fitted dress with puff sleeves, a square lace neckline, a rounded apron, and a lace cap worn behind the crown. The skirt follows her hips and thighs, the sleeves follow her arms, and the bow tails sway as she moves. The outfit follows Valheim's friendly skeleton and its existing animations. The native zero-, one-, and two-star scales are 1.00, 1.10, and 1.20.
 
