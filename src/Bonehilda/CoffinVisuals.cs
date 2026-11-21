@@ -15,6 +15,8 @@ internal static class CoffinVisuals
         foreach (var renderer in prefab.GetComponentsInChildren<Renderer>(true)) renderer.enabled = false;
         foreach (var collider in prefab.GetComponentsInChildren<Collider>(true)) collider.enabled = false;
         var root = Visuals.Child(prefab.transform, "BonehildaCoffin");
+        // Scale the complete cabinet and its colliders with the native skeleton tier.
+        root.localScale = Vector3.one * (1f + .10f * stars);
         Model(root, "cabinet", palette);
         Model(root, "bone-trim-" + stars, palette);
         Hull(root.gameObject, "back-hull");
@@ -24,13 +26,13 @@ internal static class CoffinVisuals
             var b = Outline[(i + 1) % Outline.Length];
             var mid = (a + b) * .5f;
             var wall = Visuals.Child(root, i == 0 ? "BH_CoffinFloor" : "Cabinet wall");
-            wall.localPosition = new Vector3(mid.x, mid.y, -.005f);
+            wall.localPosition = new Vector3(mid.x, mid.y, -.055f);
             wall.localRotation = Quaternion.Euler(0, 0, Mathf.Atan2(b.y - a.y, b.x - a.x) * Mathf.Rad2Deg - 90f);
-            Collider(wall.gameObject, Vector3.zero, new Vector3(.10f, Vector2.Distance(a, b), .72f));
+            Collider(wall.gameObject, Vector3.zero, new Vector3(.10f, Vector2.Distance(a, b), 1.22f));
         }
 
         var hinge = Visuals.Child(root, "BH_DoorHinge");
-        hinge.localPosition = new Vector3(-.627f, 0f, .465f);
+        hinge.localPosition = new Vector3(-.627f, 0f, .665f);
         var door = Model(hinge, "door", palette);
         // The Blender parts share the cabinet origin. Offset once at the hinge.
         door.localPosition = -hinge.localPosition;

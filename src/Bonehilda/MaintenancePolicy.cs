@@ -6,7 +6,7 @@ internal static class MaintenancePolicy
     internal static bool NearCoffinApproach(float x, float y, float z) =>
         System.Math.Abs(x) <= 1.2f && System.Math.Abs(y) <= 0.8f && z >= 0.6f && z <= 3.2f;
     internal static bool InsideCoffin(float x, float y, float z) =>
-        System.Math.Abs(x) <= 0.30f && System.Math.Abs(y) <= 0.65f && z >= -0.10f && z <= 0.26f;
+        System.Math.Abs(x) <= 0.12f && System.Math.Abs(y) <= 0.65f && z >= -0.10f && z <= 0.07f;
     internal static int StorageRows(int stacks, int width, int baseRows) => System.Math.Max(baseRows, (stacks + width - 1) / width);
     internal static bool InRadius(float distanceSquared, float radius) => distanceSquared <= radius * radius;
     internal static bool NeedsFuel(float current, float maximum, bool infinite) =>
