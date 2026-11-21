@@ -4,7 +4,7 @@
 
 A little **Makin' Magic** for your mead hall. A Valheim BepInEx/Jötunn mod that adds a buildable coffin and a skeletal maid who maintains your base. Leave the chores to Bonehilda; her free will is switched on, and she has no bladder bar to worry about.
 
-**Version 0.4.1.** Built against Valheim **0.221.4** reference assemblies and checked against the installed **Valheim 1.0.21 / Jötunn 2.30.2** libraries. The earlier release has been tested by the player in a world. Upright coffins, the fitted dress, entrance/dismissal pathfinding, and multiplayer need further gameplay testing.
+**Version 0.4.1.** Built against Valheim **0.221.4** reference assemblies and checked against the installed **Valheim 1.0.21 / Jötunn 2.30.2** libraries. All three coffins summoned their matching dressed maids in a local test world. Multiplayer and dismissal pathfinding still need gameplay testing.
 
 ## Playing
 
@@ -14,11 +14,11 @@ Build a coffin with the hammer under **Furniture** or **Storage**, near a workbe
 | --- | --- | --- | --- | --- |
 | Bonehilda's coffin (0 stars) | 0 stars; red dress | 2 slots | 10 Wood, 5 Bone Fragments | `BH_Coffin_0Star` |
 | Bonehilda's coffin (1 star) | 1 star; black dress | 4 slots | 20 Wood, 10 Bone Fragments, 1 Bronze | `BH_Coffin_1Star` |
-| Bonehilda's coffin (2 stars) | 2 stars; blue dress | 8 slots | 20 Wood, 10 Bone Fragments, 2 Bronze | `BH_Coffin` |
+| Bonehilda's coffin (2 stars) | 2 stars; blush floral dress | 8 slots | 20 Wood, 10 Bone Fragments, 2 Bronze | `BH_Coffin` |
 
-The coffin stands upright as a pentagonal cabinet inspired by Bonehilda's Sims coffins, with ivory trim, colored panels, padded lining, a small glass decoration, and a hinged door. The door has finished front, back, and edge faces. After construction, the door opens before Bonehilda appears inside and walks out. Leave clear space in front of the coffin for her entrance and return. The hammer icons use shaded isometric miniatures with six-sided tapered coffin silhouettes, wooden sides, ivory bevels, skull carvings, and tier-colored panels with star emblems.
+The six-sided coffin has a flat crown, broad shoulders, a tapered foot, and a withered-bone frame around a quilted lining and a hinged timber door. The doors carry linked lozenges, a three-lobed knot, and a four-loop weave in ascending tier order. Each frame uses crooked, weathered bone rails. The recessed candles progress from a beeswax stub in iron to an ivory pillar in bronze and a twisted plum taper in a petalled cup. Their light moves with the door. The hammer icons are renders of the three finished coffins. Leave clear space in front for Bonehilda to enter and return.
 
-Her French maid outfit is skinned to the skeleton's native bones and bind matrices, with a fitted bodice, flared skirt, apron and bib, back bow, sleeves, and pleated cap. The garment is built in the prefab's rest pose and deforms with the rig. No Unity asset bundle is required.
+Bonehilda wears a fitted dress with puff sleeves, a square lace neckline, a rounded apron, and a lace cap worn behind the crown. The skirt follows her hips and thighs, the sleeves follow her arms, and the bow tails sway as she moves. The outfit follows Valheim's friendly skeleton and its existing animations. The native zero-, one-, and two-star scales are 1.00, 1.10, and 1.20.
 
 **Use [E] Dismiss to send her off duty.** She stops working, walks back, returns carried supplies, and walks into her coffin. While she is returning, [E] Recall cancels dismissal. Her hover status simply reads On duty or Off duty. Once she is inside, **open the coffin to re-enable her** and she steps out again. Shift-use still renames her. Her health, custom name, and supply cooldown survive dismissal; dismissal does not heal her. The final approach accepts a wider staging area, steers directly near the entrance, and uses a shallow invisible threshold ramp. During entry and exit she passes through her own cabinet frame while its floor, ramp, terrain, and other structures remain solid. A blocked route can still prevent her from reaching the coffin, so she remains available to recall.
 
@@ -102,6 +102,12 @@ dotnet build src/Bonehilda/Bonehilda.csproj -c Release
 dotnet run --project tests/Bonehilda.Checks/Bonehilda.Checks.csproj -c Release
 ```
 
+To edit the models, open `assets/models/Bonehilda.blend`. The **Coffin workshop** scene contains the cabinet and moving door. The **Garment fitting** scene includes a poseable fitting rig. Run the following from the repository root after editing the art, then rebuild the DLL. Ordinary builds use the checked-in meshes, textures, and icons.
+
+```sh
+blender -b assets/models/Bonehilda.blend -P scripts/export-models.py
+```
+
 The automated policy checks exercise fuel/input capacity, ammo compatibility, rejected deliveries, fermenter item hashes, exclusions, repair eligibility, supply cooldown boundaries, and radius/wandering limits. An isolated startup probe can check materials, hammer registration, recipe references, native consumer handlers, and player animation playback on the skeleton avatar without entering a world. It does not exercise AI pathfinding, multiplayer ownership handoffs, or save/load serialization. Before using this in an established world, verify the following in a test world:
 
 - Build all three tiers: each produces exactly one tame maid with 0/1/2 stars and 2/4/8 chest slots. Check the upright door's inner faces, opening sequence, cap, apron, sleeves, skirt, and skeleton palette while she walks.
@@ -120,6 +126,6 @@ The automated policy checks exercise fuel/input capacity, ammo compatibility, re
 - With two clients and a dedicated server, alternate opening the coffin and travel across sector boundaries. Check that inventory and ownership handoffs do not duplicate maids or supplies.
 - Test a permitted ward and another player's unpermitted ward, then change the radius on the server and verify clients receive it.
 
-The mod follows Jötunn's [custom creature](https://valheim-modding.github.io/Jotunn/tutorials/creatures.html) and [custom piece](https://valheim-modding.github.io/Jotunn/api/Jotunn.Entities.CustomPiece.html) APIs. It ships original procedural geometry and plugin code, not game assets.
+The mod follows Jötunn's [custom creature](https://valheim-modding.github.io/Jotunn/tutorials/creatures.html) and [custom piece](https://valheim-modding.github.io/Jotunn/api/Jotunn.Entities.CustomPiece.html) APIs. The plugin embeds the original clothing, cabinet geometry, painted textures, and recipe icons.
 
 The [mod artwork](assets/bonehilda-artwork.png) was made with the built-in imagegen tool; its full [generation prompt](assets/icon-prompt.txt) is included. Sims references are a fan tribute, with no affiliation implied.
